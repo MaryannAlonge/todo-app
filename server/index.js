@@ -18,7 +18,7 @@ app.use(cors());
 // we must handle data from the client side using express.json(this gives us access to request.body)
 app.use(express.json());
 
-// after this create the database.sql file 
+// after this create the database.sql file (go into file)
 
 
 // then define the ROUTES
@@ -31,10 +31,17 @@ app.post("/todos", async(req, res) => {
 
   // destructure req.body
   const {description} = req.body;
+
+  // define a new variable and query the db
+ const newTodo = await pool.query("INSERT INTO todo (description) VALUES($1) RETURNING * ", 
+ [description]
+ );
+ 
+ res.json(newTodo.rows[0])
  } catch (err) {
   console.error(err.message);
  }
-})
+});
 
 // get all todos
 
