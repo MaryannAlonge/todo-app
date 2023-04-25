@@ -16,3 +16,5 @@ app.use(cors());
 
 // we must handle data from the client side using express.json(this gives us access to request.body)
 app.use(express.json());
+
+// after this create the database.sql file 
