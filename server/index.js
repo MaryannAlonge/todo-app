@@ -1,5 +1,6 @@
 const express = require("express");
-const cors = require("cors")
+const cors = require("cors");
+const pool = require("./db");
 
 // run the express libary using app
 const app = express();
