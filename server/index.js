@@ -19,3 +19,27 @@ app.use(cors());
 app.use(express.json());
 
 // after this create the database.sql file 
+
+
+// then define the ROUTES
+
+// create a todo
+app.post("/todos", async(req, res) => {
+ try {
+  // sanity check with console log first
+  console.log(req.body)
+
+  // destructure req.body
+  const {description} = req.body;
+ } catch (err) {
+  console.error(err.message);
+ }
+})
+
+// get all todos
+
+// get a todo
+
+//edit/update a todo
+
+//delete a todo
