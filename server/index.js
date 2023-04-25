@@ -52,9 +52,17 @@ app.get("/todos", async(req, res) => {
     console.error(err.message)
     
   }
-})
+});
+
 // get a todo
 
+app.get("/todos:id", async(req, res) => {
+  try {
+    const todo = await pool.query()
+  } catch (err) {
+    console.error(err.message)
+  }
+})
 //edit/update a todo
 
 //delete a todo
