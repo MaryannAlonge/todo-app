@@ -66,6 +66,8 @@ app.get("/todos/:id", async(req, res) => {
     console.error(err.message)
   }
 })
+
+
 //edit/update a todo
 
 app.put("/todos/:id", async (req, res) => {
@@ -83,3 +85,14 @@ app.put("/todos/:id", async (req, res) => {
 })
 
 //delete a todo
+
+app.delete("/todos/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteTodo = await pool.query("DELETE FROM todo WHERE todo_id = $1", [id])
+
+    res.json("Todo successfully deleted!")
+  } catch (err) {
+    console.error(err.message)
+  }
+})
