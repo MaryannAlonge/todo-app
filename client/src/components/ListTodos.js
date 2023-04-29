@@ -3,6 +3,19 @@ import React, {useEffect, useState} from 'react'
 const ListTodos = () => {
 
   const [todos, setTodos] = useState([]);
+
+  // delete todo function
+  const deleteTodo = async(id) => {
+    try {
+      const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
+        method: "DELETE"
+      })
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
+
+  // get all todos function
 const getTodos =async() => {
   try {
     // by default "fetch" makes a GET request so no need to specify unless otherwise e.g POST
@@ -44,7 +57,7 @@ const getTodos =async() => {
         <tr key={todo.todo_id}>
           <td>{todo.description}</td>
           <td>Edit</td>
-          <td>Delete</td>
+          <td><button className='btn btn-danger' onClick={() => deleteTodo(todo.todo_id)}>Delete</button></td>
         </tr>
       ))}
     </tbody>

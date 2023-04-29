@@ -34,7 +34,7 @@ import React, {useState} from 'react'
       value={description} 
       onChange={e => setDescription(e.target.value)}
       />
-      <button className='btn btn-success'>Add</button>
+      <button className='btn btn-success ml-3'>Add</button>
     </form>
     </>
   )
