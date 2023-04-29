@@ -18,7 +18,8 @@ import React, {useState} from 'react'
         body: JSON.stringify(body)
       });
 
-      console.log(response)
+      // redirect to the home page or refresh and show changes
+     window.location = "/";
     } catch (err) {
       console.error(err.message)
     }
