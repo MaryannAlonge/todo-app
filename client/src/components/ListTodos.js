@@ -9,7 +9,10 @@ const ListTodos = () => {
     try {
       const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
         method: "DELETE"
-      })
+      });
+
+     // do a filter to remove deleted todo from UI
+     setTodos(todos.filter(todo => todo.todo_id !==id))
     } catch (err) {
       console.error(err.message)
     }
