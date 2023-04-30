@@ -61,7 +61,10 @@ const getTodos =async() => {
       {todos.map(todo => (
         <tr key={todo.todo_id}>
           <td>{todo.description}</td>
-          <td><EditTodo /></td>
+          <td>
+            {/* render edit todo component here instead of app.js, also pass in props*/}
+            <EditTodo todo={todo} />
+            </td>
           <td><button className='btn btn-danger' onClick={() => deleteTodo(todo.todo_id)}>Delete</button></td>
         </tr>
       ))}
